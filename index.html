@@ -4,45 +4,46 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Smart task Manager</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-	<div>
-		<header>
-			<h1>Foco do dia!</h1>
-			<button>+ Nova Tarefa</button>
+<body class="theme-light">
+	<div class="app container">
+		<header class="app__header u-flex u-flex-between u-mb-md">
+			<h1 class="app__title">Foco na tarefa do dia!</h1>
+			<button class="btn btn--primary">+ Nova Tarefa</button>
 		</header>
-		<main>
+		<main class="tasklist u-flex u-flex-between">
 			<!-- Col: Backlog -->
-			<section>
-				<div>
-					<h2>Backlog</h2>
-					<span>0</span>
+			<section class="tasklist__column">
+				<div class="tasklist__header u-flex u-flex-between">
+					<h2 class="tasklist__title">Backlog</h2>
+					<span class="tasklist__count">0</span>
 				</div>
-				<div><!-- Cards via JS --></div>
+				<div class="tasklist__list"><!-- Cards via JS --></div>
 			</section>
 			<!-- Col: Em progresso -->
-			<section>
-				<div>
-					<h2>Em Progresso</h2>
-					<span>0</span>					
+			<section class="tasklist__column">
+				<div class="tasklist__header u-flex u-flex-between">
+					<h2 class="tasklist__title">Em progresso</h2>
+					<span class="tasklist__count">0</span>
 				</div>
-				<div><!-- Cards via JS --></div>
+				<div class="tasklist__list"><!-- Cards via JS --></div>
 			</section>
 			<!-- Col: Em Revisão -->
-			<section>
-				<div>
-					<h2>Em Revisão</h2>
-					<span>0</span>
+			<section class="tasklist__column">
+				<div class="tasklist__header u-flex u-flex-between">
+					<h2 class="tasklist__title">Em Revisão</h2>
+					<span class="tasklist__count">0</span>
 				</div>
-				<div><!-- Cards via JS --></div>
+				<div class="tasklist__list"><!-- Cards via JS --></div>
 			</section>
 			<!-- Col: Concluido -->
-			<section>
-				<div>
-					<h2>Concluido</h2>
-					<span>0</span>
+			<section class="tasklist__column">
+				<div class="tasklist__header u-flex u-flex-between">
+					<h2 class="tasklist__title">Concluído</h2>
+					<span class="tasklist__count">0</span>
 				</div>
-				<div><!-- Cards via JS --></div>
+				<div class="tasklist__list"><!-- Cards via JS --></div>
 			</section>
 		</main>
 	</div>
