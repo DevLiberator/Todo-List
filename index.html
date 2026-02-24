@@ -10,42 +10,43 @@
 	<div class="app container">
 		<header class="app__header u-flex u-flex-between u-mb-md">
 			<h1 class="app__title">Foco na tarefa do dia!</h1>
-			<button class="btn btn--primary">+ Nova Tarefa</button>
+			<button class="btn btn--primary" id="addTask">+ Nova Tarefa</button>
 		</header>
 		<main class="tasklist u-flex u-flex-between">
 			<!-- Col: Backlog -->
-			<section class="tasklist__column">
+			<section class="tasklist__column" data-column="backlog">
 				<div class="tasklist__header u-flex u-flex-between">
 					<h2 class="tasklist__title">Backlog</h2>
 					<span class="tasklist__count">0</span>
 				</div>
-				<div class="tasklist__list"><!-- Cards via JS --></div>
+				<div class="tasklist__list" id="backlog-list"><!-- Cards via JS --></div>
 			</section>
 			<!-- Col: Em progresso -->
-			<section class="tasklist__column">
+			<section class="tasklist__column" data-column="in-progress">
 				<div class="tasklist__header u-flex u-flex-between">
 					<h2 class="tasklist__title">Em progresso</h2>
 					<span class="tasklist__count">0</span>
 				</div>
-				<div class="tasklist__list"><!-- Cards via JS --></div>
+				<div class="tasklist__list" id="in-progress-list"><!-- Cards via JS --></div>
 			</section>
 			<!-- Col: Em Revisão -->
-			<section class="tasklist__column">
+			<section class="tasklist__column" data-column="review">
 				<div class="tasklist__header u-flex u-flex-between">
 					<h2 class="tasklist__title">Em Revisão</h2>
 					<span class="tasklist__count">0</span>
 				</div>
-				<div class="tasklist__list"><!-- Cards via JS --></div>
+				<div class="tasklist__list" id="review-list"><!-- Cards via JS --></div>
 			</section>
 			<!-- Col: Concluido -->
-			<section class="tasklist__column">
+			<section class="tasklist__column" data-column="done">
 				<div class="tasklist__header u-flex u-flex-between">
 					<h2 class="tasklist__title">Concluído</h2>
 					<span class="tasklist__count">0</span>
 				</div>
-				<div class="tasklist__list"><!-- Cards via JS --></div>
+				<div class="tasklist__list" id="done-list"><!-- Cards via JS --></div>
 			</section>
 		</main>
 	</div>
+	<script src="main.js"></script>
 </body>
 </html>
