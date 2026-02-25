@@ -1,52 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Smart task Manager</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body class="theme-light">
-	<div class="app container">
-		<header class="app__header u-flex u-flex-between u-mb-md">
-			<h1 class="app__title">Foco na tarefa do dia!</h1>
-			<button class="btn btn--primary" id="addTask">+ Nova Tarefa</button>
-		</header>
-		<main class="tasklist u-flex u-flex-between">
-			<!-- Col: Backlog -->
-			<section class="tasklist__column" data-column="backlog">
-				<div class="tasklist__header u-flex u-flex-between">
-					<h2 class="tasklist__title">Backlog</h2>
-					<span class="tasklist__count">0</span>
-				</div>
-				<div class="tasklist__list" id="backlog-list"><!-- Cards via JS --></div>
-			</section>
-			<!-- Col: Em progresso -->
-			<section class="tasklist__column" data-column="in-progress">
-				<div class="tasklist__header u-flex u-flex-between">
-					<h2 class="tasklist__title">Em progresso</h2>
-					<span class="tasklist__count">0</span>
-				</div>
-				<div class="tasklist__list" id="in-progress-list"><!-- Cards via JS --></div>
-			</section>
-			<!-- Col: Em Revisão -->
-			<section class="tasklist__column" data-column="review">
-				<div class="tasklist__header u-flex u-flex-between">
-					<h2 class="tasklist__title">Em Revisão</h2>
-					<span class="tasklist__count">0</span>
-				</div>
-				<div class="tasklist__list" id="review-list"><!-- Cards via JS --></div>
-			</section>
-			<!-- Col: Concluido -->
-			<section class="tasklist__column" data-column="done">
-				<div class="tasklist__header u-flex u-flex-between">
-					<h2 class="tasklist__title">Concluído</h2>
-					<span class="tasklist__count">0</span>
-				</div>
-				<div class="tasklist__list" id="done-list"><!-- Cards via JS --></div>
-			</section>
-		</main>
-	</div>
-	<script src="main.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Task Manager</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="theme-light">
+    <div class="app container">
+      <!-- HEADER -->
+      <header class="app__header u-flex u-flex-between u-mb-md">
+        <h1 class="app__title">Foco na tarefa do dia!</h1>
+        <button class="btn btn--primary" id="addTask">+ Nova Tarefa</button>
+      </header>
+
+      <main class="tasklist u-flex u-flex-between">
+        <!-- Backlog -->
+        <section class="tasklist__column" data-column="backlog">
+          <div class="tasklist__header u-flex u-flex-between">
+            <h2 class="tasklist__title">A fazer</h2>
+            <span class="tasklist__count">0</span>
+          </div>
+          <div class="tasklist__list" id="backlog-list"></div>
+        </section>
+
+        <!-- Em Progresso -->
+        <section class="tasklist__column" data-column="in-progress">
+          <div class="tasklist__header u-flex u-flex-between">
+            <h2 class="tasklist__title">Em Progresso</h2>
+            <span class="tasklist__count">0</span>
+          </div>
+          <div class="tasklist__list" id="in-progress-list"></div>
+        </section>
+
+        <!-- Em Revisão -->
+        <section class="tasklist__column" data-column="review">
+          <div class="tasklist__header u-flex u-flex-between">
+            <h2 class="tasklist__title">Em Revisão</h2>
+            <span class="tasklist__count">0</span>
+          </div>
+          <div class="tasklist__list" id="review-list"></div>
+        </section>
+
+        <!-- Concluído -->
+        <section class="tasklist__column" data-column="done">
+          <div class="tasklist__header u-flex u-flex-between">
+            <h2 class="tasklist__title">Concluído</h2>
+            <span class="tasklist__count">0</span>
+          </div>
+          <div class="tasklist__list" id="done-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Modal detalhes de tarefaz-->
+    <div class="modal" id="taskModal">
+      <div class="modal__overlay" id="modalOverlay"></div>
+
+      <div class="modal__content">
+        <button class="modal__close" id="closeModal">&times;</button>
+
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+
+        <div class="modal__actions" id="modalActions">
+          <!-- Botões gerados via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal criar tarefa -->
+    <div class="modal" id="createTaskModal">
+      <div class="modal__overlay" id="createOverlay"></div>
+
+      <div class="modal__content">
+        <button class="modal__close" id="closeCreateModal">&times;</button>
+
+        <h2>Nova Tarefa</h2>
+
+        <form id="createTaskForm" class="form">
+          <div class="form__group">
+            <label for="newTitle">Título</label>
+            <input type="text" id="newTitle" required />
+          </div>
+
+          <div class="form__group">
+            <label for="newDescription">Descrição</label>
+            <textarea id="newDescription"></textarea>
+          </div>
+
+          <div class="form__group">
+            <label for="newPriority">Prioridade</label>
+            <select id="newPriority">
+              <option value="low">Baixa</option>
+              <option value="medium" selected>Média</option>
+              <option value="high">Alta</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-kanban btn-progress">
+            Criar Tarefa
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="main.js"></script>
+  </body>
 </html>
