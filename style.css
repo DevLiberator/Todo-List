@@ -1,4 +1,5 @@
 :root {
+  /*  CORES  */
   --color-primary: #2563eb;
   --color-primary-hover: #1d4ed8;
   --color-background: #f9fafb;
@@ -10,10 +11,12 @@
   --color-warning: #f59e0b;
   --color-danger: #dc2626;
 
+  /*  BORDER RADIUS  */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
 
+  /*  ESPAÇAMENTOS  */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
@@ -21,13 +24,14 @@
   --spacing-xl: 32px;
 }
 
+/*  RESET  */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== BASE ===== */
+/*  BASE  */
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--color-background);
@@ -56,7 +60,7 @@ body {
   margin-top: var(--spacing-sm);
 }
 
-/* ===== BOTÃO PRINCIPAL ===== */
+/*  BOTÃO PRINCIPAL  */
 .btn {
   padding: var(--spacing-sm) var(--spacing-md);
   border: none;
@@ -76,9 +80,12 @@ body {
   transform: translateY(-1px);
 }
 
-/* ===== TASKLIST ===== */
+/*  TASKLIST  */
 .tasklist {
+  display: flex;
   gap: var(--spacing-lg);
+  overflow-x: auto; /* scroll horizontal em telas pequenas */
+  flex-wrap: nowrap;
 }
 
 .tasklist__column {
@@ -90,6 +97,7 @@ body {
   flex-direction: column;
   max-height: 80vh;
   overflow-y: auto;
+  min-width: 280px; /* garante legibilidade no scroll horizontal */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -113,7 +121,7 @@ body {
   gap: var(--spacing-sm);
 }
 
-/* ===== CARD ===== */
+/*  CARD  */
 .card {
   background-color: var(--color-background);
   border: 1px solid var(--color-border);
@@ -150,7 +158,7 @@ body {
   border-left: 4px solid var(--color-success);
 }
 
-/* ===== CARD ACTIONS ===== */
+/*  CARD ACTIONS  */
 .card__actions {
   margin-top: var(--spacing-sm);
   display: flex;
@@ -173,7 +181,7 @@ body {
   opacity: 0.85;
 }
 
-/* ===== MODAL ===== */
+/*  MODAL  */
 .modal {
   position: fixed;
   inset: 0;
@@ -222,7 +230,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* ===== BOTÕES KANBAN ===== */
+/*  BOTÕES KANBAN  */
 .btn-kanban {
   flex: 1;
   padding: var(--spacing-sm);
@@ -252,7 +260,7 @@ body {
   opacity: 0.9;
 }
 
-/* ===== FORM ===== */
+/*  FORM  */
 .form {
   display: flex;
   flex-direction: column;
@@ -282,7 +290,7 @@ body {
   min-height: 70px;
 }
 
-/* ===== ANIMAÇÃO ===== */
+/*  ANIMAÇÃO  */
 @keyframes fadeIn {
   from {
     transform: scale(0.95);
@@ -294,11 +302,55 @@ body {
   }
 }
 
-/* ===== DARK MODE ===== */
+/*  DARK MODE  */
 .theme-dark {
   --color-background: #0f172a;
   --color-surface: #1e293b;
   --color-text-primary: #f1f5f9;
   --color-text-secondary: #94a3b8;
   --color-border: #334155;
+}
+
+/*  RESPONSIVO  */
+@media (max-width: 768px) {
+  .tasklist {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: var(--spacing-md);
+  }
+
+  .tasklist__column {
+    max-height: none;
+  }
+
+  .modal__content {
+    width: 90%;
+    padding: var(--spacing-md);
+  }
+
+  .btn, .btn-kanban {
+    width: 50%;
+    text-align: center;
+  }
+
+  .modal__actions {
+    flex-direction: column;
+  }
+
+  .card__title {
+    font-size: 16px;
+  }
+
+  .card__description {
+    font-size: 12px;
+  }
+
+  .tasklist__title {
+    font-size: 16px;
+  }
 }
